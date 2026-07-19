@@ -31,6 +31,7 @@ logs/
 *.jpg
 *.jpeg
 *.gif
+!assets/demo.gif
 *.bmp
 *.mp4
 *.avi
