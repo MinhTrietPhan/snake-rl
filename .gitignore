@@ -28,6 +28,7 @@ logs/
 *.onnx
 
 *.png
+!assets/training_metrics.png
 *.jpg
 *.jpeg
 *.gif

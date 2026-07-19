@@ -77,7 +77,7 @@ Reward được thiết kế để tránh việc rắn chỉ tham lam đi gần 
 Cài các thư viện cần thiết:
 
 ```powershell
-pip install torch numpy matplotlib pygame
+pip install -r requirements.txt
 ```
 
 Nếu chỉ train không cần hiển thị game, `pygame` có thể thiếu. Khi đó `evaluate.py` vẫn có thể chạy ở chế độ không render.
@@ -191,6 +191,24 @@ Các cột chính trong `metrics.csv`:
 - `epsilon`
 - `train_steps`
 - `best_score`
+
+## Kết quả mẫu
+
+Một lần train 500 episode đạt:
+
+| Chỉ số | Giá trị |
+|---|---:|
+| Best score | 119 |
+| Final score MA100 | 88.350 |
+| Final reward MA100 | 1859.145 |
+| Final loss MA100 | 2.548440 |
+| Final epsilon | 0.222628 |
+
+![Training metrics](assets/training_metrics.png)
+
+## Ghi chú về thư mục tự sinh
+
+`checkpoints/` và `logs/` được `train.py` tạo tự động khi train. Hai thư mục này được Git ignore vì checkpoint model và log train có thể khá nặng. Ảnh minh họa dùng trong tài liệu được lưu ở `assets/`.
 
 ## Biến môi trường quan trọng
 

@@ -39,6 +39,8 @@ checkpoints/          # Saved models
 logs/                 # Metrics, summaries, and training charts
 ```
 
+`checkpoints/` and `logs/` are created automatically by `train.py`. They are ignored by Git because model files and training logs can become large. Sample documentation images are stored in `assets/`.
+
 ## How It Works
 
 1. `SnakeEnv` creates the current game state.
@@ -81,7 +83,7 @@ The reward is shaped to avoid purely greedy food chasing that can trap the snake
 Install the required libraries:
 
 ```powershell
-pip install torch numpy matplotlib pygame
+pip install -r requirements.txt
 ```
 
 If you only train without rendering the game, `pygame` is optional. `evaluate.py` can still run without rendering.
@@ -142,6 +144,8 @@ Models are saved in the `checkpoints/` directory.
 
 `snake_dqn_best.pth` is overwritten when an episode reaches a higher score than the current best score of the run.
 
+The `checkpoints/` directory is generated automatically and is not committed to this repository.
+
 ## Evaluation
 
 Evaluate the default model:
@@ -186,6 +190,8 @@ Generated files:
 - `training_metrics.png`: score, reward, loss, and epsilon charts.
 - `learning_curve.png`: moving-average score and reward chart.
 
+The `logs/` directory is generated automatically and is not committed to this repository.
+
 Main columns in `metrics.csv`:
 
 - `episode`
@@ -195,6 +201,20 @@ Main columns in `metrics.csv`:
 - `epsilon`
 - `train_steps`
 - `best_score`
+
+## Sample Results
+
+A 500-episode training run reached:
+
+| Metric | Value |
+|---|---:|
+| Best score | 119 |
+| Final score MA100 | 88.350 |
+| Final reward MA100 | 1859.145 |
+| Final loss MA100 | 2.548440 |
+| Final epsilon | 0.222628 |
+
+![Training metrics](assets/training_metrics.png)
 
 ## Important Environment Variables
 
